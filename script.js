@@ -1,10 +1,10 @@
 
-const fetchPromise = fetch(`https://api.openweathermap.org/data/2.5/weather?q=london&appid=68ee6aa7a509b956382fa8853b7507e0`)
+let firstName = document.getElementById("firstName")
+let lastName = document.getElementById("lastName")
+let id = document.getElementById("num")
+let createData = document.getElementById("submit")
+let ulEl = document.getElementById("ul-el")
 
-fetchPromise.then(response=>{
-    return response.json()
-}).then(data=>{
-    console.log(data)
-}).catch((error)=>{
-    console.log(error)
+createData.addEventListener("click", function(){
+    ulEl.innerHTML = "<li>"+ firstName.value +"</li>"+ "<li>"+ lastName.value +"</li>" + "<li>"+ id.value +"</li>"
 })
