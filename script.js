@@ -1,6 +1,6 @@
 
 let movieTitle = "spider"
-
+let myDiv = document.getElementById("movieContainer")
 //
 
 async function  getMovie(movieTitle){
@@ -18,11 +18,16 @@ getMovie(movieTitle)
 
 function displayMovie(data){
     console.log(data)
-    let myDiv= document.createElement("div")
-    myDiv.innerText =  "data.Title"
-    document.body.appendChild(myDiv)
-    // movieContainer.innerHTML = `<li>  ${data.Year}  </li>`
-    // movieContainer.innerHTML = `<li>  ${data.Released}  </li>`
-    // movieContainer.innerHTML = `<img  src=${data.Poster}  >`
+    let para = document.createElement("p")
+    para.innerHTML = `${data.Title}`
+    myDiv.appendChild(para)
+   
+    let img = document.createElement("img")
+    img.src = `${data.Poster}`
+    myDiv.appendChild(img)
+    let span = document.createElement("p")
+    span.innerHTML = `${data.imdbRating}`
+    myDiv.appendChild(span)
+
 
 }
