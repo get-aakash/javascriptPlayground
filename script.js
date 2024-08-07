@@ -1,10 +1,28 @@
 
-let firstName = document.getElementById("firstName")
-let lastName = document.getElementById("lastName")
-let id = document.getElementById("num")
-let createData = document.getElementById("submit")
-let ulEl = document.getElementById("ul-el")
+let movieTitle = "spider"
 
-createData.addEventListener("click", function(){
-    ulEl.innerHTML = "<li>"+ firstName.value +"</li>"+ "<li>"+ lastName.value +"</li>" + "<li>"+ id.value +"</li>"
-})
+//
+
+async function  getMovie(movieTitle){
+    const apiUrl = `http://www.omdbapi.com/?t=${movieTitle}&apikey=7d7f6780`
+    const fetchPromise = fetch(apiUrl)
+    fetchPromise.then(response=>{
+        return response.json()
+    }).then(data=>{
+        console.log(data)
+        displayMovie(data)
+    })
+}
+
+getMovie(movieTitle)
+
+function displayMovie(data){
+    console.log(data)
+    let myDiv= document.createElement("div")
+    myDiv.innerText =  "data.Title"
+    document.body.appendChild(myDiv)
+    // movieContainer.innerHTML = `<li>  ${data.Year}  </li>`
+    // movieContainer.innerHTML = `<li>  ${data.Released}  </li>`
+    // movieContainer.innerHTML = `<img  src=${data.Poster}  >`
+
+}
